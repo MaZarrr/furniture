@@ -16,7 +16,7 @@
     <form on:submit|preventDefault={() => {}}>
         <div class="select">
         <select bind:value={selected} on:change={() => selectCategory(selected.name)}>
-            {#each categoryItems as item (item.name)}
+            {#each $categoryStore as item (item.name)}
                 <option value={item}>
                       {item.name}
                 </option>
