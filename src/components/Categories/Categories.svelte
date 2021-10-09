@@ -5,10 +5,14 @@
     import Category from './Category.svelte';
     import Button from '../../stories/Button.svelte'
     import categories, {categoryStore, categoryItems, selectCategory} from "../../stores/category"
+    import {onMount} from "svelte";
 
     let selected;
 
-    console.log("categoryStore", $categoryStore)
+    onMount(() => {
+        selectCategory("Все")
+    })
+
 </script>
 
 <section class="section">

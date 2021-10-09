@@ -735,13 +735,3 @@ Alert
 	cursor: pointer;
 	line-height: 0;
 }
-/*
-======
-Checkout
-======
-*/
-.checkout-empty {
-	margin-top: 10rem;
-	text-align: center;
-	text-transform: capitalize;
-}
