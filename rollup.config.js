@@ -49,7 +49,7 @@ export default {
 			}
 		}),
 		babel({
-			extensions: ['.ts', '.js', '.mjs', '.html', '.svelte'],
+			extensions: ['.js', '.mjs', '.html', '.svelte'],
 			runtimeHelpers: true,
 			exclude: ['node_modules/@babel/**'], // <= /!\ NOT 'node_mobules/**'
 			presets: [
