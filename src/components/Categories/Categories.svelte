@@ -1,10 +1,13 @@
 <script>
+    import Loading from "../UI/Loading.svelte";
+
     export let title = "";
     import Category from './Category.svelte';
-    import categories, { categoryStore, categoryItems } from "../../stores/category"
-    import {selectCategory} from "../../stores/category";
+    import categories, {categoryStore, categoryItems, selectCategory} from "../../stores/category"
+
     let selected;
 
+    console.log("categoryStore", $categoryStore)
 </script>
 
 <section class="section">
@@ -12,9 +15,9 @@
     <p>Выберите категорию:</p>
     <form on:submit|preventDefault={() => {}}>
         <div class="select">
-        <select  bind:value={selected} on:change={() => selectCategory(selected.name)}>
+        <select bind:value={selected} on:change={() => selectCategory(selected.name)}>
             {#each categoryItems as item (item.name)}
-                <option value={item} >
+                <option value={item}>
                       {item.name}
                 </option>
             {/each}
@@ -25,11 +28,15 @@
     <div class="category-center">
 
     {#each $categoryStore as category (category.id)}
+        {#if !!category.select}
             <Category {category} />
+        {/if}
+        {:else}
+        <Loading />
     {/each}
 
     </div>
-    <h4>Выбрана категория: {selected ? selected.name : '[waiting...]'}</h4>
+    <h4>Выбрана категория: {selected ? selected.name : "<Loading/>"}</h4>
 
 </section>
 

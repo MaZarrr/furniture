@@ -4,75 +4,53 @@ import localCategory from "../../localCategory";
 export const categoryItems = [
     {
         id: 0,
-        name: "Все"
+        name: "Все",
+        select: true,
     },
     {
         id: 1,
         name: "Комоды и тумбы",
+        select: false,
     },
     {
         id: 2,
         name: "Мебель для кухни",
+        select: false,
     },
     {
         id: 3,
         name: "Мебель для офиса",
+        select: false,
     },
     {
         id: 4,
         name: "Стенки для гостинной",
+        select: false,
     },
 ]
 
-const store = writable([...localCategory])
+const categoryData = writable([...localCategory])
 
-// global functions
-export const selectCategory = name => {
-    if(name === "Все") {
-        return store.set(localCategory)
-    } else {
-        store.update(storeValue => {
-            return localCategory.filter((item) => {
-                return item.name === name
-            })
+// localFunctions -----------------------------
+const toggleCategory = (name, items, action) => {
+        return items.map(item => {
+            return item.name === name ? {...item, select: true} : {...item, select: false}
         })
-    }
 }
 
-// localStorage
+// global functions -------------------------
+export const selectCategory = name => {
+        name === "Все" ?
+            categoryData.set(localCategory)
+            :
+            categoryData.update(storeValue => {
+                return toggleCategory(name, storeValue);
+            })
 
-// local functions
-// function flattenCategory(data) {
-//     return data.map(item => {
-//         let image = item.image.url;
-//         return {...item, image}
-//     })
-// }
-// export const addFavorite = (id) => {
-//
-// }
+}
 
-export const categoryStore = derived(store, $categories => {
-    console.log($categories)
+export const categoryStore = derived(categoryData, $categories => {
     return $categories
 })
 
-export default store;
-
-
-// store.update(storeValue => {
-//     const category = storeValue.find((item) => item.id === id);
-//     const categoryIndex = storeValue.findIndex((item) => item.id === id);
-//     const updateCategory = {
-//         ...category,
-//         select: true
-//     }
-//     console.log(updateCategory)
-//     return {
-//         storeValue: [
-//             ...storeValue.slice(0, categoryIndex),
-//             updateCategory,
-//             ...storeValue.slice(categoryIndex + 1)
-//         ]
-//     }
-// })
+export default categoryData;

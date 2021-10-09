@@ -2,9 +2,11 @@
     // import {onMount, onDestroy} from "svelte"
     import products from "../../stores/product";
     import Product from "./Product.svelte";
-
+    import categories, { categoryStore } from "../../stores/category"
     let product = [];
     // let unsubscribe;
+    console.log("categoryStore", categoryStore)
+    console.log("categories", $categories)
     console.log($products)
     // onMount(() => {
     //   unsubscribe = products.subscribe(value => {
