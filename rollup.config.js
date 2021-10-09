@@ -66,7 +66,7 @@ export default {
 		legacy && babel({
 			extensions: ['.js', '.mjs', '.html', '.svelte'],
 			babelHelpers: 'runtime',
-			exclude: ['node_modules/@babel/**'], // <= /!\ NOT 'node_mobules/**'
+			exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'], // <= /!\ NOT 'node_mobules/**'
 			plugins: [
 				'@babel/plugin-syntax-dynamic-import',
 				'@babel/plugin-syntax-import-meta',
@@ -78,6 +78,8 @@ export default {
 				['@babel/preset-env', {
 					// adapter to ensure IE 11 support
 					targets: '> 0.25%, not dead, IE 11',
+					useBuiltIns: 'usage',
+					corejs: 3
 				}],
 			],
 		}),
