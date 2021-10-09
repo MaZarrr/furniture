@@ -3,6 +3,7 @@
 
     export let title = "";
     import Category from './Category.svelte';
+    import Button from '../../stories/Button.svelte'
     import categories, {categoryStore, categoryItems, selectCategory} from "../../stores/category"
 
     let selected;
@@ -11,36 +12,38 @@
 </script>
 
 <section class="section">
-    <h1 class="section-title">{title}
-    <p>Выберите категорию:</p>
+    <h2 class="section-title">Выберите категорию:</h2>
     <form on:submit|preventDefault={() => {}}>
         <div class="select">
-        <select bind:value={selected} on:change={() => selectCategory(selected.name)}>
-            {#each $categoryStore as item (item.name)}
-                <option value={item}>
-                      {item.name}
-                </option>
-            {/each}
-        </select>
+            <select bind:value={selected} on:change={() => selectCategory(selected.name)}>
+                {#each categoryItems as item (item.name)}
+                    <option value={item}>
+                        {item.name}
+                    </option>
+                {/each}
+            </select>
         </div>
 
     </form>
     <div class="category-center">
 
-    {#each $categoryStore as category (category.id)}
-        {#if !!category.select}
-            <Category {category} />
-        {/if}
+        {#each $categoryStore as category (category.id)}
+            {#if !!category.select}
+                <Category {category} />
+            {/if}
         {:else}
-        <Loading />
-    {/each}
+            <Loading />
+        {/each}
 
     </div>
-    <h4>Выбрана категория: {selected ? selected.name : "<Loading/>"}</h4>
-
+    <div style="display: flex; justify-content: space-between">
+        <h4>Выбрана категория: {selected ? selected.name : "<Loading/>"}</h4>
+        <Button label="Подробнее" onClick={undefined} backgroundColor="#e9fa1e" size="large"/>
+    </div>
 </section>
 
 <style>
+
     select {
         appearance: none;
         outline: 0;
@@ -62,10 +65,10 @@
     .select {
         position: relative;
         display: flex;
-        max-width: 1200px;
+        width: 70%;
         margin: 0 auto 40px auto;
-        height: 1.1em;
-        line-height: 1.1;
+        height: 2em;
+        line-height: 2;
         background: #402c2c;
         overflow: hidden;
         border-radius: .25em;

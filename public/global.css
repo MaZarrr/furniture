@@ -206,12 +206,14 @@ Navbar
 	line-height: 0;
 }
 .logo {
-	width: 9rem;
+	width: 8rem;
 }
+
 .big-logo {
 	position: absolute;
 	top: 50%;
 	left: 50%;
+	width: 80px;
 	transform: translate(-50%, -50%);
 }
 .nav-aside {
@@ -298,6 +300,8 @@ Products
 */
 .section {
 	padding: 4rem 0;
+	max-width: 1280px;
+	margin: 0 auto;
 }
 .section-title {
 	font-size: 2.3rem;

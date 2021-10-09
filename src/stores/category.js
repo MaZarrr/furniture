@@ -54,3 +54,24 @@ export const categoryStore = derived(categoryData, $categories => {
 })
 
 export default categoryData;
+
+
+
+
+
+
+
+
+// const flattenCategories = (items, action) => {
+//     if(action === "1") {
+//         return items.filter(item => item.name !== "Все")
+//     } else if(action === "2") {
+//         return items.map(({ id, name, select }) => {
+//             return {id, name, select}
+//         })
+//     }
+// }
+//
+// export const categoryList = derived(categoryData, $category => {
+//     return flattenCategories($category, "2")
+// })
