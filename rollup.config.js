@@ -48,8 +48,8 @@ export default {
 				dev: !production
 			}
 		}),
-		babel({
-			extensions: ['.js', '.mjs', '.html', '.svelte'],
+		legacy && babel({
+			extensions: ['.ts', '.js', '.mjs', '.html', '.svelte'],
 			runtimeHelpers: true,
 			exclude: ['node_modules/@babel/**'], // <= /!\ NOT 'node_mobules/**'
 			presets: [
