@@ -6,6 +6,7 @@
     import Button from '../../stories/Button.svelte'
     import categories, {categoryStore, categoryItems, selectCategory} from "../../stores/category"
     import {onMount} from "svelte";
+    import {link} from "svelte-routing";
 
     let selected;
 
@@ -42,7 +43,9 @@
     </div>
     <div style="display: flex; justify-content: space-between">
         <h4>Выбрана категория: {selected ? selected.name : "<Loading/>"}</h4>
+        <a href="/about" use:link>
         <Button label="Подробнее" onClick={undefined} backgroundColor="#e9fa1e" size="large"/>
+        </a>
     </div>
 </section>
 
