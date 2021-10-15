@@ -1,24 +1,23 @@
 <script>
-    import {onMount, onDestroy} from "svelte"
+    // import {onMount, onDestroy} from "svelte"
     // import products from "../../stores/product";
-    import Product from "./Product.svelte";
+    // import Product from "./Product.svelte";
     // import categories, { categoryStore } from "../../stores/category"
     // let product = [];
     // let unsubscribe;
     // console.log($products)
     // Function to add a cat (catName: string) => void;
-    export let addCat;
-    export let catList;
+   export let catList;
+   export let addCat
+    // let store;
+    // onMount(() => {
+        // if ('function' === typeof addCat) {
+        //     addCat('Mr. Whiskers');
+        // }
+        // console.log(catList)
+        // console.log(state)
 
-    onMount(() => {
-        if ('function' === typeof addCat) {
-            addCat('Mr. Whiskers');
-        }
-        console.log(addCat)
-
-    });
-    console.log(catList)
-
+    // });
     // onMount(() => {
     //   unsubscribe = products.subscribe(value => {
     //         product = value

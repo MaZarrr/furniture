@@ -1,8 +1,23 @@
-// // import { createReducer } from '../store';
+// import { createReducer } from '../store';
 //
-// const initialState = {
-//     list: [],
-// };
+const initialState = {
+    list: [],
+};
+
+const catsReducer = (state = initialState, action) => {
+
+    switch(action.type) {
+        case 'ADD_CAT':
+            return {
+                ...state,
+            }
+
+        default:
+            return state
+    }
+}
+
+export default catsReducer;
 //
 // const actions = {
 //     'ADD_CAT': addCat,
@@ -16,22 +31,18 @@
 //
 // export default createReducer(initialState, actions);
 
-const initialState = { value: 0 }
+// const initialState = { value: 0 }
 
-function catReducer(state = initialState, action) {
-    switch (action.type) {
-        case 'ADD_CAT':
-            return { ...state, value: state.value + 1 }
-        case 'decrement':
-            return { ...state, value: state.value - 1 }
-        case 'incrementByAmount':
-            return { ...state, value: state.value + action.payload }
-        default:
-            return state
-    }
-}
-
-export default catReducer
+// function catReducer(state = initialState, action) {
+//     switch (action.type) {
+//         case 'ADD_CAT':
+//             return { ...state, value: state.value + 1 }
+//         default:
+//             return state
+//     }
+// }
+//
+// export default catReducer
 
 
 
