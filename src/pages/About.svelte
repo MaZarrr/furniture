@@ -12,6 +12,7 @@
     import OSM, {ATTRIBUTION} from 'ol/source/OSM';
     // import TileJSON from 'ol/source/TileJSON';
 
+    let map;
 
     const moscow = new Feature({
         geometry: new Point(fromLonLat([37.61556, 55.75222])),
@@ -47,7 +48,7 @@
     });
 
     onMount(() => {
-       const map = new Map({
+       map = new Map({
            layers: [rasterLayer, vectorLayer],
             target: 'map',
             view: new View({
@@ -60,4 +61,4 @@
 </script>
 
 
-<div id="map" class="map"></div>
+<div bind:this={map}></div>

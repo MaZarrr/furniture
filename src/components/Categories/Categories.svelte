@@ -8,7 +8,7 @@
     import {onMount} from "svelte";
     import {link} from "svelte-routing";
 
-    let selected;
+    let selected = {name: "Все"}
 
     onMount(() => {
         selectCategory("Все")
@@ -22,7 +22,7 @@
         <div class="select">
             <select bind:value={selected} on:change={() => selectCategory(selected.name)}>
                 {#each categoryItems as item (item.name)}
-                    <option value={item}>
+                    <option value={item} class:name={item.name === selected.name}>
                         {item.name}
                     </option>
                 {/each}
@@ -50,6 +50,9 @@
 </section>
 
 <style>
+    .name {
+        background-color: red;
+    }
 
     select {
         appearance: none;

@@ -5,7 +5,7 @@
 
 </script>
 
-<article class="category" >
+<article >
     <div class="image-container">
         <img src={image} alt="{name}">
     </div>
@@ -13,3 +13,4 @@
         <p class="category-title">{name}</p>
     </div>
 </article>
+
