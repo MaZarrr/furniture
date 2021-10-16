@@ -1,37 +1,24 @@
 <script>
-    import { Provider } from "svelte-redux-connect";
-
-
     import { Router, Route } from "svelte-routing";
+    import { Provider } from 'svelte-redux-connect';
 
-    import { onMount } from 'svelte';
-
-    //pages
-    // import Products from './pages/Products.svelte'
+    import store from './redux/store.js';
+    // routes page -------------
     import Products from './components/Products/products'
-    import Home from './pages/Home.svelte'
-    import About from './pages/About.svelte'
+    import Home from './routes/Home.svelte'
+    import About from './routes/About.svelte'
 
-    // components
+    // components -----------------
     import Navbar from "./components/Navbar/Navbar.svelte";
-    import store from './store.js';
-    // export let store;
-    // console.log(props)
 
-    // console.log(store.getState())
-    // import globalStore from './stores/globalStore'
-    console.log(store.getState())
-    // export let url="{url}"
-    // console.log($globalStore)
 </script>
     <Provider {store}>
-        <Products />
-<!--    <Router>-->
-<!--        <Navbar />-->
-<!--        <Route path="/" component={Home}></Route>-->
-<!--        <Route path="/products" component={Products}></Route>-->
-<!--        <Route path="/about" component={About}></Route>-->
-<!--&lt;!&ndash;    <Route path="products/:name" component={ProductTemplate}></Route>&ndash;&gt;-->
-<!--    </Router>-->
+    <Router>
+        <Navbar />
+        <Route path="/" component={Home}></Route>
+        <Route path="/products" component={Products}></Route>
+        <Route path="/about" component={About}></Route>
+<!--    <Route path="products/:name" component={ProductTemplate}></Route>-->
+    </Router>
     </Provider>
 

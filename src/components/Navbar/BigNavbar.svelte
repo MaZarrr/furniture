@@ -1,7 +1,7 @@
 <script>
     import { link } from "svelte-routing";
     import CartBasket from "../Cart/CartBasket.svelte";
-    import links from "../../constants/links";
+    import { links } from "../../common/constants";
     //cartButton
     //globalStore
 </script>

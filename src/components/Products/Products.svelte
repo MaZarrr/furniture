@@ -1,37 +1,25 @@
 <script>
-    // import {onMount, onDestroy} from "svelte"
-    // import products from "../../stores/product";
-    // import Product from "./Product.svelte";
-    // import categories, { categoryStore } from "../../stores/category"
-    // let product = [];
-    // let unsubscribe;
-    // console.log($products)
-    // Function to add a cat (catName: string) => void;
-   export let catList;
-   export let addCat
-    // let store;
-    // onMount(() => {
-        // if ('function' === typeof addCat) {
-        //     addCat('Mr. Whiskers');
-        // }
-        // console.log(catList)
-        // console.log(state)
+    import {onMount, onDestroy} from "svelte"
+    export let products;
+    export let loadProducts;
 
-    // });
     // onMount(() => {
-    //   unsubscribe = products.subscribe(value => {
-    //         product = value
-    //     })
-    // })
-    // onDestroy(() => {
-    //     unsubscribe()
+
     // })
 </script>
 
 <h1>
     Products component
 </h1>
-
-<!--{#each $products as product (product.id)}-->
-<!--    <Product {product} />-->
-<!--{/each}-->
+<button on:click={() => loadProducts({
+            id: 9,
+            description: "",
+            image: "assets/images-category/komod.jpg",
+            name: "Мониторы",
+            select: false,
+        })}>ddddddddddddddddd</button>
+{#each products as cat}
+    <li>
+        {cat.name}
+    </li>
+{/each}

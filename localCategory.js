@@ -4,14 +4,14 @@ export default [
         name: "Комоды и тумбы",
         description: "",
         image: "assets/images-category/komod.jpg",
-        select: true,
+        select: false,
     },
     {
         id: 2,
         name: "Мебель для кухни",
         description: "",
         image: "assets/images-category/kychna.jpg",
-        select: true,
+        select: false,
     },
     {
         id: 3,
@@ -25,6 +25,6 @@ export default [
         name: "Стенки для гостинной",
         description: "",
         image: "assets/images-category/gost.jpg",
-        select: true,
+        select: false,
     },
 ]

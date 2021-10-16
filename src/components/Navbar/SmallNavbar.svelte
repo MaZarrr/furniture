@@ -1,5 +1,5 @@
 <script>
-    import {link} from "svelte-routing";
+    import { link } from "svelte-routing";
     import CartBasket from "../Cart/CartBasket.svelte";
     //cartButton
     //globalStore
