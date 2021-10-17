@@ -18,7 +18,7 @@ export default [
         name: "Мебель для офиса",
         description: "",
         image: "assets/images-category/office.jpg",
-        select: true,
+        select: false,
     },
     {
         id: 4,

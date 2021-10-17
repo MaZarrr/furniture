@@ -49,7 +49,7 @@
 
 <style>
     .card {
-        margin-bottom: 1000px;
+        margin-bottom: 150px;
         display: grid;
         grid-template-rows: 340px repeat(3, auto);
         gap: 10px;

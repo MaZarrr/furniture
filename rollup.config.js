@@ -64,7 +64,7 @@ export default {
 		commonjs(),
 
 		legacy && babel({
-			extensions: ['.js', '.mjs', '.html', '.svelte'],
+			extensions: ['.js', '.ts', '.mjs', '.html', '.svelte'],
 			babelHelpers: 'runtime',
 			exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'], // <= /!\ NOT 'node_mobules/**'
 			plugins: [
